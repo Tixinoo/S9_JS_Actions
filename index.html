@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Actions Market</title>
+
+  <!-- Styles CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!-- Scripts JS -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="blue-grey darken-4" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Actions Market</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Accueil</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Accueil</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">Menu</i></a>
+    </div>
+  </nav>
+
+  <!-- TITRE -->
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h1 class="header center light-blue-text">Actions Market</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Regarder. Acheter. Profiter.</h5>
+      </div>
+      <!-- Optionnel: bouton pour commencer
+      <div class="row center">
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Commencer</a>
+      </div>
+      -->
+    </div>
+  </div>
+
+  <!-- CONTENU -->
+  <div class="">
+    <div class="section">
+
+      <!-- RECHERCHE -->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="icon-block">
+
+            <!-- Icône de recherche -->
+            <h2 class="center light-blue-text"><i class="material-icons">search</i></h2>
+
+            <!-- Optionnel: Titre -->
+            <!--<h5 class="center">Rechercher</h5>-->
+
+            <!-- Barre de recherche -->
+            <p><input type="text" name="Search" placeholder="Rechercher dans toutes les actions disponibles"></p>
+
+          </div>
+        </div>
+
+        <!-- GRAPHIQUE -->
+        <div class="col s12 m6">
+          <div class="icon-block">
+
+            <!-- Icône de la partie graphique -->
+            <h2 class="center light-blue-text"><i class="material-icons">trending_up</i></h2>
+
+            <!-- Optionnel: Titre -->
+            <!--<h5 class="center">Graphique</h5>-->
+
+            <!-- Graphique -->
+            <p class="light">//TODO</p>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- PORTEFEUILLE -->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="icon-block">
+
+            <!-- Icône de la partie portefeuille -->
+            <h2 class="center light-blue-text"><i class="material-icons">work</i></h2>
+
+            <!-- Optionnel: Titre -->
+            <!--<h5 class="center">Portefeuille d'actions</h5>-->
+
+            <!-- Tableau représentant le portefeuille d'actions -->
+            <table class="centered striped">
+              <thead>
+                <tr>
+                    <th data-field="id">Référence</th>
+                    <th data-field="name">Description</th>
+                    <th data-field="price">Prix</th>
+                    <th data-field="price"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Alvin</td>
+                  <td>Eclair</td>
+                  <td>$0.87</td>
+                  <td><a class="waves-effect waves-light-blue waves-light btn">Acheter</a></td>
+                </tr>
+                <tr>
+                  <td>Alan</td>
+                  <td>Jellybean</td>
+                  <td>$3.76</td>
+                  <td><a class="waves-effect waves-light-blue waves-light btn">Acheter</a></td>
+                </tr>
+                <tr>
+                  <td>Jonathan</td>
+                  <td>Lollipop</td>
+                  <td>$7.00</td>
+                  <td><a class="waves-effect waves-light-blue waves-light btn">Acheter</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <!-- RÉCAPITULATIF -->
+        <div class="col s12 m6">
+          <div class="icon-block">
+
+            <!-- Icône pour la partie récapitulatif -->
+            <h2 class="center light-blue-text"><i class="material-icons">receipt</i></h2>
+
+            <!-- Optionnel: Titre -->
+            <!--<h5 class="center">Récapitulatif</h5>-->
+
+            <!-- Tableau récapitulatif des + et - values -->
+            <p class="light">//TODO</p>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <footer class="page-footer blue-grey darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l12 s12">
+          <h5 class="white-text">À propos</h5>
+          <blockquote class="grey-text text-lighten-4">Nous partons d'un constat simple : il n'existe aujourd'hui aucune véritable solution simple et efficace permettant d'acheter des actions. Grâce vous, nous avons su construire un outil innovant, accessible et gratuit. Essayer <i>Actions Market</i> , c'est l'adopter.</blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="light-blue-text text-lighten-3" href="#">Antoine Nosal</a>
+      </div>
+    </div>
+  </footer>
+
+  </body>
+</html>

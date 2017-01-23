@@ -1,0 +1,14 @@
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.waves-effect.waves-light-blue {
+      background-color: rgba(3, 169, 244, 1);
+}
+
+blockquote {
+  border-left: 5px solid #03a9f4
+}
