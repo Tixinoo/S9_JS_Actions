@@ -105,25 +105,82 @@
                     <th data-field="price"></th>
                 </tr>
               </thead>
-
               <tbody>
                 <tr>
                   <td>Alvin</td>
                   <td>Eclair</td>
                   <td>$0.87</td>
-                  <td><a class="waves-effect waves-light-blue waves-light btn">Acheter</a></td>
+                  <td>
+                    <form class="col s12">
+                      <div class="row">
+                        <div class="input-field col s10">
+                          <input id="icon_prefix" type="text" class="validate">
+                          <label for="icon_prefix">Quantité</label>
+                        </div>
+                        <div class="input-field col s2">
+                          <button class="btn waves-effect waves-light-blue waves-light btn-floating" type="submit" name="action">+
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </td>
                 </tr>
                 <tr>
                   <td>Alan</td>
                   <td>Jellybean</td>
                   <td>$3.76</td>
-                  <td><a class="waves-effect waves-light-blue waves-light btn">Acheter</a></td>
+                  <td>
+                    <form class="col s12">
+                      <div class="row">
+                        <div class="input-field col s10">
+                          <input id="icon_prefix" type="text" class="validate">
+                          <label for="icon_prefix">Quantité</label>
+                        </div>
+                        <div class="input-field col s2">
+                          <button class="btn waves-effect waves-light-blue waves-light btn-floating" type="submit" name="action">+
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </td>
                 </tr>
                 <tr>
                   <td>Jonathan</td>
                   <td>Lollipop</td>
                   <td>$7.00</td>
-                  <td><a class="waves-effect waves-light-blue waves-light btn">Acheter</a></td>
+                  <td>
+                    <form class="col s12">
+                      <div class="row">
+                        <div class="input-field col s10">
+                          <input id="icon_prefix" type="text" class="validate">
+                          <label for="icon_prefix">Quantité</label>
+                        </div>
+                        <div class="input-field col s2">
+                          <button class="btn waves-effect waves-light-blue waves-light btn-floating" type="submit" name="action">+
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jonathan</td>
+                  <td>Lollipop</td>
+                  <td>$7.00</td>
+                  <td>
+                    <form class="col s12">
+                      <div class="row">
+                        <div class="input-field col s10">
+                          <input id="icon_prefix" type="text" class="validate">
+                          <label for="icon_prefix">Quantité</label>
+                        </div>
+                        <div class="input-field col s2">
+                          <button class="btn waves-effect waves-light-blue waves-light btn-floating" type="submit" name="action">+
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -142,7 +199,37 @@
             <!--<h5 class="center">Récapitulatif</h5>-->
 
             <!-- Tableau récapitulatif des + et - values -->
-            <p class="light">//TODO</p>
+            <!-- Tableau représentant le portefeuille d'actions -->
+            <table class="centered striped">
+              <thead>
+                <tr>
+                    <th data-field="id">Référence</th>
+                    <th data-field="name">Nombre</th>
+                    <th data-field="price">Prix d'achat</th>
+                    <th data-field="price">+/-</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alvin</td>
+                  <td>Eclair</td>
+                  <td>$0.87</td>
+                  <td>+0.12%</td>
+                </tr>
+                <tr>
+                  <td>Alan</td>
+                  <td>Jellybean</td>
+                  <td>$3.76</td>
+                  <td>-0.87%</td>
+                </tr>
+                <tr>
+                  <td>Jonathan</td>
+                  <td>Lollipop</td>
+                  <td>$7.00</td>
+                  <td>+0.65%</td>
+                </tr>
+              </tbody>
+            </table>
 
           </div>
         </div>

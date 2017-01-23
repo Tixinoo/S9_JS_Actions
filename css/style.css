@@ -6,9 +6,17 @@
 }
 
 .waves-effect.waves-light-blue {
-      background-color: rgba(3, 169, 244, 1);
+  background-color: rgba(3, 169, 244, 1) !important;
 }
 
 blockquote {
   border-left: 5px solid #03a9f4
+}
+
+form .row {
+  margin-bottom: 0px !important;
+}
+
+td {
+  padding: 5px 2px !important;
 }
