@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/Tixinoo/S9_JS_Actions#readme",
   "dependencies": {
+    "angular": "^1.6.2",
     "express": "^4.14.1",
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "materialize-css": "^0.98.0"
   }
 }
