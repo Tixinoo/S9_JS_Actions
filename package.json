@@ -1,0 +1,25 @@
+{
+  "name": "s9_js_actions",
+  "version": "0.0.3",
+  "description": "Projet réalisé dans le cadre du cours de mise en oeuvre d'applications distribuées en 2017.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tixinoo/S9_JS_Actions.git"
+  },
+  "keywords": [
+    "web",
+    "javascript",
+    "angularjs",
+    "nodejs"
+  ],
+  "author": "Antoine Nosal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tixinoo/S9_JS_Actions/issues"
+  },
+  "homepage": "https://github.com/Tixinoo/S9_JS_Actions#readme"
+}
