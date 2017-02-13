@@ -20,5 +20,14 @@ var Stock = mongoose.model('Stock', StockSchema);
 app.use(express.static(__dirname + '/public'));
 app.use('/node_modules',  express.static(__dirname + '/node_modules'));
 
+// Parse le body (json) de la requête
+app.use(bodyParser.json());
+
+// Définit les routes
+app.route('/hello')
+.get(function (req, res) {
+  res.send('Hello World!');
+})
+
 app.listen('3000');
 console.log('[Node] Le serveur est lancé.');
