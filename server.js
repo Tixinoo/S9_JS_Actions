@@ -11,8 +11,8 @@ var app = express();
 var Database = mongoose.connect('mongodb://localhost/actionsmarket');
 var Schema = mongoose.Schema;
 var StockSchema = new Schema({
-  name: String,
-  symbol: String,
+  reference: String,
+  description: String,
   price: Number
 });
 var StockModel = mongoose.model('Stock', StockSchema);
@@ -44,6 +44,27 @@ app.route('/search/:symbol')
     }
   })
 })
+
+app.route('/stocks')
+.get(function(req, res, next){
+  StockModel.find({}, function(err, stocks){
+    if(err){
+      return next(err);
+    } else {
+      res.json(stocks);
+    }
+  })
+})
+.post(function(req, res, next){
+    var stock = new StockModel(req.body);
+    stock.save(function(err){
+      if(err){
+        return next(err);
+      } else {
+        return res.json(stock);
+      }
+  });
+});
 
 app.listen('3000');
 console.log('[Node] Le serveur est lancé.');
