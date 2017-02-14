@@ -72,15 +72,23 @@
                         <!-- Optionnel: Titre -->
                         <!--<h5 class="center">Rechercher</h5>-->
                         <!-- Barre de recherche -->
-                        <p><input type="text" name="Search" ng-model="symbol" placeholder="Rechercher dans toutes les actions disponibles"></p>
-                        <button ng-click="search()">Rechercher</button>
+                        <div class="row">
+                            <div class="col s12">
+                              <div class="col s8">
+                                <input type="text" name="Search" ng-model="symbol" placeholder="Rechercher une action">
+                              </div>
+                              <div class="col s4">
+                                <button class="btn waves-effect waves-light-blue waves-light" ng-click="search()">Rechercher</button>
+                              </div>
+                            </div>
+                        </div>
                         <div>
                             <table class="centered striped">
                                 <thead>
                                     <tr>
                                         <th data-field="id">Référence</th>
                                         <th data-field="name">Description</th>
-                                        <th data-field="price">Prix</th>
+                                        <th data-field="price">Prix de vente</th>
                                         <th data-field="price"></th>
                                     </tr>
                                 </thead>
@@ -121,8 +129,9 @@
                                     <tr>
                                         <th data-field="id">Référence</th>
                                         <th data-field="name">Description</th>
-                                        <th data-field="price">Prix</th>
-                                        <th data-field="price"></th>
+                                        <th data-field="price">Prix d'achat</th>
+                                        <th data-field="price">Prix de vente</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
