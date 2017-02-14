@@ -1,5 +1,5 @@
 angular.module('stocks_shop').controller('SearchController',
-  ['$scope', '$http', function($scope, $http) {
+  ['$rootScope', '$scope', '$http', function($rootScope, $scope, $http) {
 
     $scope.search = search;
     $scope.stock_results = [];
@@ -17,20 +17,20 @@ angular.module('stocks_shop').controller('SearchController',
         };
         Stock_result.prototype.buy = function() {
           console.log("Achat de l'action dont le symbole est: " + this.reference + " et dont le prix est de: " + this.price);
-          // TODO: POST
           var data = {
             reference : this.reference,
             description : this.description,
             price : this.price
           }
           $http.post('http://localhost:3000/stocks', data);
+          $rootScope.$broadcast('updateStocks');
         };
 
         // Crée et ajoute une instance de Stock_result au scope
         var stock_result = new Stock_result(response);
         $scope.stock_result = stock_result;
         $scope.stock_results.push(stock_result);
-        
+
       }, function(error) {
         console.log(error);
       });

@@ -67,20 +67,14 @@
             <div class="row">
                 <div class="col s12 m6">
                     <div class="icon-block" ng-controller='SearchController'>
-
                         <!-- Icône de recherche -->
                         <h2 class="center light-blue-text"><i class="material-icons">search</i></h2>
-
                         <!-- Optionnel: Titre -->
                         <!--<h5 class="center">Rechercher</h5>-->
-
                         <!-- Barre de recherche -->
                         <p><input type="text" name="Search" ng-model="symbol" placeholder="Rechercher dans toutes les actions disponibles"></p>
-
                         <button ng-click="search()">Rechercher</button>
-
                         <div>
-
                             <table class="centered striped">
                                 <thead>
                                     <tr>
@@ -91,31 +85,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <tr ng-repeat='stock_result in stock_results' search>
                                     </tr>
-
                                 </tbody>
                             </table>
-
                         </div>
-
                     </div>
                 </div>
 
                 <!-- GRAPHIQUE -->
                 <div class="col s12 m6">
                     <div class="icon-block">
-
                         <!-- Icône de la partie graphique -->
                         <h2 class="center light-blue-text"><i class="material-icons">trending_up</i></h2>
-
                         <!-- Optionnel: Titre -->
                         <!--<h5 class="center">Graphique</h5>-->
-
                         <!-- Graphique -->
                         <p class="light">//TODO</p>
-
                     </div>
                 </div>
             </div>
@@ -124,18 +110,12 @@
             <div class="row">
                 <div class="col s12 m6">
                     <div class="icon-block">
-
                         <!-- Icône de la partie portefeuille -->
                         <h2 class="center light-blue-text"><i class="material-icons">work</i></h2>
-
                         <!-- Optionnel: Titre -->
                         <!--<h5 class="center">Portefeuille d'actions</h5>-->
-
                         <!-- Tableau représentant le portefeuille d'actions -->
-
-
                         <div ng-controller='StocksController'>
-
                             <table class="centered striped">
                                 <thead>
                                     <tr>
@@ -146,29 +126,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <!--ICI-->
                                     <tr ng-repeat='stock in stocks' stock>
                                     </tr>
-
                                 </tbody>
                             </table>
-
                         </div>
-
                     </div>
                 </div>
 
                 <!-- RÉCAPITULATIF -->
                 <div class="col s12 m6">
                     <div class="icon-block">
-
                         <!-- Icône pour la partie récapitulatif -->
                         <h2 class="center light-blue-text"><i class="material-icons">receipt</i></h2>
-
                         <!-- Optionnel: Titre -->
                         <!--<h5 class="center">Récapitulatif</h5>-->
-
                         <!-- Tableau récapitulatif des + et - values -->
                         <!-- Tableau représentant le portefeuille d'actions -->
                         <table class="centered striped">
@@ -201,13 +174,11 @@
                                 </tr>
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>
 
         </div>
-
     </div>
 
 
