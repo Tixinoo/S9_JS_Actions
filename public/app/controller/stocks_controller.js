@@ -1,12 +1,15 @@
 angular.module('stocks_shop').controller('StocksController',
   ['$scope', '$http', 'Stock', function($scope, $http, Stock) {
 
-    $scope.stocks = [];
-    var data = {reference:"XB2212",price:"$10"};
-    var newStock = new Stock(data);
-    var data2 = {reference:"XB2213",price:"$13"};
-    var newStock2 = new Stock(data2);
-    $scope.stocks.push(newStock);
-    $scope.stocks.push(newStock2);
+    $http.get('http://localhost:3000/stocks')
+    .then(function(response) {
+      $scope.stocks = [];
+      response.data.forEach(function(data) {
+        var newStock = new Stock(data);
+        $scope.stocks.push(newStock);
+      });
+    }, function(error) {
+      console.log(error);
+    });
 
   }]);
