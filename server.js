@@ -19,7 +19,7 @@ var StockModel = mongoose.model('Stock', StockSchema);
 var SaleSchema = new Schema({
   reference: String,
   description: String,
-  value: String,
+  value: Number,
   quantity: Number,
   date: Date
 });
@@ -93,6 +93,27 @@ app.route('/sales')
         return res.json(sale);
       }
   });
+});
+
+app.route('/sales/sum')
+.get(function(req, res, next){
+  SaleModel.aggregate(
+    [
+       {
+         $group:
+           {
+             _id: { _id: "$reference" },
+             totalAmount: { $sum: { $multiply: [ "$value", "$quantity" ] } },
+             count: { $sum: 1 }
+           }
+       }
+     ], function(err, sales){
+    if(err){
+      return next(err);
+    } else {
+      res.json(sales);
+    }
+  })
 });
 
 app.listen('3000');
