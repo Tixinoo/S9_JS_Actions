@@ -102,9 +102,9 @@ app.route('/sales/sum')
        {
          $group:
            {
-             _id: { _id: "$reference" },
-             totalAmount: { $sum: { $multiply: [ "$value", "$quantity" ] } },
-             count: { $sum: 1 }
+             _id: "$reference",
+             value: { $sum: { $multiply: [ "$value", "$quantity" ] } },
+             quantity: { $sum: 1 }
            }
        }
      ], function(err, sales){

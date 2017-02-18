@@ -23,9 +23,12 @@
     <script src='app/app.js'></script>
     <script src='app/controller/stocks_controller.js'></script>
     <script src='app/controller/search_controller.js'></script>
+    <script src='app/controller/referencesums_controller.js'></script>
     <script src='app/directive/stock_directive.js'></script>
     <script src='app/directive/search_directive.js'></script>
+    <script src='app/directive/referencesum_directive.js'></script>
     <script src='app/model/stock.js'></script>
+    <script src='app/model/referencesum.js'></script>
 </head>
 
 <body ng-app="stocks_shop">
@@ -135,7 +138,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!--ICI-->
                                     <tr ng-repeat='stock in stocks' stock>
                                     </tr>
                                 </tbody>
@@ -153,36 +155,21 @@
                         <!--<h5 class="center">Récapitulatif</h5>-->
                         <!-- Tableau récapitulatif des + et - values -->
                         <!-- Tableau représentant le portefeuille d'actions -->
-                        <table class="centered striped">
-                            <thead>
-                                <tr>
-                                    <th data-field="id">Référence</th>
-                                    <th data-field="name">Nombre</th>
-                                    <th data-field="price">Prix d'achat</th>
-                                    <th data-field="price">+/-</th>
+                        <div ng-controller='ReferenceSumsController'>
+                          <table class="centered striped">
+                              <thead>
+                                  <tr>
+                                      <th data-field="id">Référence</th>
+                                      <th data-field="name">Nombre d'actions vendues</th>
+                                      <th data-field="price">+/- value</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-repeat='referencesum in referencesums' referencesum>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Alvin</td>
-                                    <td>Eclair</td>
-                                    <td>$0.87</td>
-                                    <td>+0.12%</td>
-                                </tr>
-                                <tr>
-                                    <td>Alan</td>
-                                    <td>Jellybean</td>
-                                    <td>$3.76</td>
-                                    <td>-0.87%</td>
-                                </tr>
-                                <tr>
-                                    <td>Jonathan</td>
-                                    <td>Lollipop</td>
-                                    <td>$7.00</td>
-                                    <td>+0.65%</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                              </tbody>
+                          </table>
+                        </div>
                     </div>
                 </div>
             </div>

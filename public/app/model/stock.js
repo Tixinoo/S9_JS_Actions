@@ -1,5 +1,6 @@
 angular.module('stocks_shop').factory('Stock',
   ['$rootScope', '$http', function($rootScope, $http) {
+
     var Stock = function(reference, description, price) {
       this.reference = reference;
       this.description = description;
@@ -15,6 +16,7 @@ angular.module('stocks_shop').factory('Stock',
       }
       $http.post('http://localhost:3000/stocks', data);
       $rootScope.$broadcast('updateStocks');
+      $rootScope.$broadcast('updateReferenceSums');
     }
 
     Stock.prototype.sell = function() {
@@ -31,8 +33,10 @@ angular.module('stocks_shop').factory('Stock',
       }
       console.log(data);
       $http.post('http://localhost:3000/sales', data);
-      //TODO: $rootScope.$broadcast('updateSales');
+      $rootScope.$broadcast('updateStocks');
+      $rootScope.$broadcast('updateReferenceSums');
     }
 
     return Stock;
+
   }]);
