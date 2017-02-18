@@ -32,6 +32,7 @@ angular.module('stocks_shop').factory('Stock',
         date : ""
       }
       console.log(data);
+      $http.delete('http://localhost:3000/stocks/' + this.id);
       $http.post('http://localhost:3000/sales', data);
       $rootScope.$broadcast('updateStocks');
       $rootScope.$broadcast('updateReferenceSums');
