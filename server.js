@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 app.route('/hello')
 .get(function (req, res) {
   res.send('Hello World!');
-})
+});
 
 app.route('/search/:symbol')
 .get(function (req, res) {
@@ -51,7 +51,18 @@ app.route('/search/:symbol')
       res.send(body);
     }
   })
-})
+});
+
+app.route('/stocks/:id')
+.delete(function(req, res, next){
+  StockModel.remove({_id: req.params.id}, function(err){
+    if(err){
+      return next(err);
+    } else {
+      return res.sendStatus(204);
+    }
+  })
+});
 
 app.route('/stocks')
 .get(function(req, res, next){
