@@ -8,6 +8,9 @@ angular.module('stocks_shop').directive('stock',
         scope.buy = function() {
           scope.stock.buy();
         }
+        scope.sell = function() {
+          scope.stock.sell();
+        }
       }
     }
   }]);

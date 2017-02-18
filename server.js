@@ -16,6 +16,14 @@ var StockSchema = new Schema({
   price: Number
 });
 var StockModel = mongoose.model('Stock', StockSchema);
+var SaleSchema = new Schema({
+  reference: String,
+  description: String,
+  value: String,
+  quantity: Number,
+  date: Date
+});
+var SaleModel = mongoose.model('Sale', SaleSchema);
 
 // Fichiers statiques
 app.use(express.static(__dirname + '/public'));
@@ -62,6 +70,27 @@ app.route('/stocks')
         return next(err);
       } else {
         return res.json(stock);
+      }
+  });
+});
+
+app.route('/sales')
+.get(function(req, res, next){
+  SaleModel.find({}, function(err, sales){
+    if(err){
+      return next(err);
+    } else {
+      res.json(sales);
+    }
+  })
+})
+.post(function(req, res, next){
+    var sale = new SaleModel(req.body);
+    sale.save(function(err){
+      if(err){
+        return next(err);
+      } else {
+        return res.json(sale);
       }
   });
 });

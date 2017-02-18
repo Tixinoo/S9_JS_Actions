@@ -8,7 +8,8 @@ angular.module('stocks_shop').controller('StocksController',
       .then(function(response) {
         $scope.stocks = [];
         response.data.forEach(function(data) {
-          var newStock = new Stock(data);
+          var newStock = new Stock(data.reference, data.description, data.price);
+          newStock.retailprice = (newStock.price * 0.90);
           $scope.stocks.push(newStock);
         });
       }, function(error) {
