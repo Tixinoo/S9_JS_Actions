@@ -29,7 +29,7 @@ angular.module('stocks_shop').factory('Stock',
         description : this.description,
         value : float,
         quantity : "1",
-        date : ""
+        date : new Date().toISOString()
       }
       console.log(data);
       $http.delete('http://localhost:3000/stocks/' + this.id);
