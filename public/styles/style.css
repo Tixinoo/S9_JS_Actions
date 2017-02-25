@@ -31,6 +31,11 @@
   width: 100%;
 }
 
+.c3-axis-x .tick {
+   display: none;
+}
+
+
 blockquote {
   border-left: 5px solid #03a9f4
 }

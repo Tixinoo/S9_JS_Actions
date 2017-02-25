@@ -12,8 +12,9 @@
         var values = ['+/- values'];
         var beginWith = 800;
         response.data.forEach(function(data) {
-          var d = new Date(data.date);
-          var date = new Date(d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
+          var dateInDb = new Date(data.date);
+          var dateContent = dateInDb.getFullYear() + '-' + dateInDb.getMonth() + '-' + dateInDb.getDate() + ' ' + dateInDb.getHours() + ':' + dateInDb.getMinutes() + ':' + dateInDb.getSeconds();
+          var date = new Date(dateContent);
           dates.push(date);
           beginWith = beginWith + Number(data.value);
           values.push(beginWith);
@@ -29,12 +30,22 @@
             },
             axis: {
                 x: {
+                    label: 'temps',
                     type: 'timeseries',
                     tick: {
                         //format: '%Y-%m-%dT%H:%M:%S.%fZ'
                         format: '%Y-%m-%d %H:%M:%S'
                     }
+                },
+                y: {
+                    label: '$$$'
                 }
+                /*x: {
+                    type : 'categorized',
+                    tick: {
+                        format: function (x) { return ''; }
+                    }
+                }*/
             }
         });
       }, function(error) {
