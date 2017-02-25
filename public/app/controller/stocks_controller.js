@@ -13,7 +13,7 @@ angular.module('stocks_shop').controller('StocksController',
           var newStock = new Stock(data.reference, data.description, data.price);
           //TODO: Récupérer le nouveau prix de l'action
           //Pour l'instant, prix de vente = 90% du prix d'achat
-          newStock.retailprice = (newStock.price * -100);
+          newStock.retailprice = (newStock.price * Math.floor((Math.random() * 200) -100));
           newStock.id = data._id;
           $scope.stocks.push(newStock);
         });

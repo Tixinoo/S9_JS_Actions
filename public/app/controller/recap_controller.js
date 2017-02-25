@@ -19,6 +19,13 @@
           beginWith = beginWith + Number(data.value);
           values.push(beginWith);
         });
+
+        if(dates.length > 10) {
+          dates = dates.slice(10);
+          dates.unshift('x');
+          values = values.slice(10);
+          values.unshift('x/- values');
+        }
         var chart = c3.generate({
             bindto: '#chart',
             data: {
