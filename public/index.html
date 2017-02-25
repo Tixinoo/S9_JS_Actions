@@ -26,6 +26,7 @@
     <script src='app/controller/stocks_controller.js'></script>
     <script src='app/controller/search_controller.js'></script>
     <script src='app/controller/referencesums_controller.js'></script>
+    <script src='app/controller/recap_controller.js'></script>
     <script src='app/directive/stock_directive.js'></script>
     <script src='app/directive/search_directive.js'></script>
     <script src='app/directive/referencesum_directive.js'></script>
@@ -121,7 +122,8 @@
                         <!-- Optionnel: Titre -->
                         <!--<h5 class="center">Graphique</h5>-->
                         <!-- Graphique -->
-                        <div id="chart"></div>
+                        <div id="chart" ng-controller='RecapController'>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -205,15 +207,7 @@
     </footer>
 
   <script>
-  var chart = c3.generate({
-      bindto: '#chart',
-      data: {
-        columns: [
-          ['data1', 30, 200, 100, 400, 150, 250],
-          ['data2', 50, 20, 10, 40, 15, 25]
-        ]
-      }
-  });
+
   </script>
 
 </body>

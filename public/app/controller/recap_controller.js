@@ -6,10 +6,34 @@
 
     // Mets à jour le graphique récapitulatif
     function updateChart(event, value) {
-      $http.get('http://localhost:3000/sales/sum')
+      $http.get('http://localhost:3000/sales')
       .then(function(response) {
+        var dates = ['x'];
+        var values = ['+/- values'];
         response.data.forEach(function(data) {
-          //TODO
+          var d = new Date(data.date);
+          var date = new Date(d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
+          dates.push(date);
+          values.push(data.value);
+        });
+        var chart = c3.generate({
+            bindto: '#chart',
+            data: {
+                x: 'x',
+                columns: [
+                    dates,
+                    values
+                ]
+            },
+            axis: {
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        //format: '%Y-%m-%dT%H:%M:%S.%fZ'
+                        format: '%Y-%m-%d %H:%M:%S'
+                    }
+                }
+            }
         });
       }, function(error) {
         console.log(error);
