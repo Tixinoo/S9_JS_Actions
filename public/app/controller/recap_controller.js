@@ -10,11 +10,13 @@
       .then(function(response) {
         var dates = ['x'];
         var values = ['+/- values'];
+        var beginWith = 800;
         response.data.forEach(function(data) {
           var d = new Date(data.date);
           var date = new Date(d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
           dates.push(date);
-          values.push(data.value);
+          beginWith = beginWith + Number(data.value);
+          values.push(beginWith);
         });
         var chart = c3.generate({
             bindto: '#chart',
