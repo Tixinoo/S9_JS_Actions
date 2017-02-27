@@ -7,7 +7,7 @@ var request = require('request');
 // Démarre express
 var app = express();
 
-// Connecte et configure mongo
+// Connecte et configure mongo via mongoose
 var Database = mongoose.connect('mongodb://localhost/actionsmarket');
 var Schema = mongoose.Schema;
 var StockSchema = new Schema({
@@ -32,7 +32,27 @@ app.use('/node_modules',  express.static(__dirname + '/node_modules'));
 // Parse le body (json) de la requête
 app.use(bodyParser.json());
 
-// Définit les routes
+/* Définit les routes suivantes:
+    /hello
+      GET
+
+    /search/:symbol
+      GET
+
+    /stocks/:id
+      DELETE
+
+    /stocks
+      GET
+      POST
+
+    /sales
+      GET
+      POST
+
+    /sales/sum
+      GET
+*/
 app.route('/hello')
 .get(function (req, res) {
   res.send('Hello World!');

@@ -10,11 +10,10 @@ angular.module('stocks_shop').controller('StocksController',
       .then(function(response) {
         $scope.stocks = [];
         response.data.forEach(function(data) {
-          var newStock = new Stock(data.reference, data.description, data.price);
           //TODO: Récupérer le nouveau prix de l'action
-          //Pour l'instant, prix de vente = 90% du prix d'achat
-          newStock.retailprice = (newStock.price * Math.floor((Math.random() * 200) -100));
-          newStock.id = data._id;
+          //Pour l'instant, prix de vente random
+          var retailprice = (data.price * Math.floor((Math.random() * 200) -100));
+          var newStock = new Stock(data._id, data.reference, data.description, data.price, retailprice);
           $scope.stocks.push(newStock);
         });
       }, function(error) {

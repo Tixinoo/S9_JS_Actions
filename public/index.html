@@ -33,9 +33,9 @@
     <script src='app/model/stock.js'></script>
     <script src='app/model/referencesum.js'></script>
 
-    <!-- Load c3.css -->
+    <!-- [CSS] C3 -->
     <link href="/node_modules/c3/c3.css" rel="stylesheet" type="text/css">
-    <!-- Load d3.js and c3.js -->
+    <!-- [JS] D3 & C3 -->
     <script src="/node_modules/d3/d3.min.js" charset="utf-8"></script>
     <script src="/node_modules/c3/c3.min.js"></script>
 
@@ -64,11 +64,6 @@
             <div class="row center">
                 <h5 class="header col s12 light">Regarder. Acheter. Profiter.</h5>
             </div>
-            <!-- Optionnel: bouton pour commencer
-            <div class="row center">
-              <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Commencer</a>
-            </div>
-      -->
         </div>
     </div>
 
@@ -76,129 +71,120 @@
     <div class="">
         <div class="section">
 
-            <div class="row">
+          <div class="row">
 
-              <!-- GRAPHIQUE -->
-              <div class="col s12 m6 push-m1 z-depth-3"> <!-- z-depth-3 -->
-                  <div class="icon-block">
-                      <!-- Icône de la partie graphique -->
-                      <div class="center light-blue-text">
-                        <h2><i class="material-icons">trending_up</i></h2>
-                        Évolution de mon portefeuille
-                      </div>
-                      <!-- Optionnel: Titre -->
-                      <!--<h5 class="center">Graphique</h5>-->
-                      <!-- Graphique -->
-                      <div id="chart" ng-controller='RecapController'></div>
-                  </div>
-              </div>
+            <!-- GRAPHIQUE -->
+            <div class="col s12 m6 push-m1 z-depth-3">
+                <div class="icon-block">
+                    <!-- Icône de la partie graphique -->
+                    <div class="center light-blue-text">
+                      <h2><i class="material-icons">trending_up</i></h2>
+                      Évolution du portefeuille
+                    </div>
+                    <!-- Graphique -->
+                    <div id="chart" ng-controller='RecapController'></div>
+                </div>
+            </div>
 
-              <!-- RÉCAPITULATIF -->
-              <div class="col s12 m4 push-m1">
-                  <div class="icon-block">
-                      <!-- Icône pour la partie récapitulatif -->
-                      <div class="center light-blue-text">
-                        <h2><i class="material-icons">receipt</i></h2>
-                        Récapitulatif des ventes
-                      </div>
-                      <!-- Optionnel: Titre -->
-                      <!--<h5 class="center">Récapitulatif</h5>-->
-                      <!-- Tableau récapitulatif des + et - values -->
-                      <!-- Tableau représentant le portefeuille d'actions -->
-                      <div ng-controller='ReferenceSumsController'>
+            <!-- RÉCAPITULATIF -->
+            <div class="col s12 m4 push-m1">
+                <div class="icon-block">
+                    <!-- Icône pour la partie récapitulatif -->
+                    <div class="center light-blue-text">
+                      <h2><i class="material-icons">receipt</i></h2>
+                      Récapitulatif des ventes
+                    </div>
+                    <!-- Tableau récapitulatif des + et - values -->
+                    <div ng-controller='ReferenceSumsController'>
+                      <table class="centered striped">
+                          <thead>
+                              <tr>
+                                  <th data-field="id">Référence</th>
+                                  <th data-field="name">Nombre d'actions vendues</th>
+                                  <th data-field="price">+/- value ($)</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat='referencesum in referencesums' referencesum>
+                            </tr>
+                          </tbody>
+                      </table>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <!-- RECHERCHE -->
+            <div class="col s12 m4 push-m2">
+                <div class="icon-block" ng-controller='SearchController'>
+                    <!-- Icône de recherche -->
+                    <div class="center light-blue-text">
+                      <h2><i class="material-icons">search</i></h2>
+                      Recherche d'un prix
+                    </div>
+                    <!-- Barre de recherche -->
+                    <div>
+                        <div>
+                          <div class="col s12 nopadding">
+                            <input type="text" name="Search" ng-model="symbol" placeholder="Rechercher une action">
+                          </div>
+                          <div class="col s12 nopadding">
+                            <button class="btn waves-effect waves-light-blue waves-light all" ng-click="search()">Rechercher</button>
+                          </div>
+                        </div>
+                    </div>
+                    <div>
                         <table class="centered striped">
                             <thead>
                                 <tr>
                                     <th data-field="id">Référence</th>
-                                    <th data-field="name">Nombre d'actions vendues</th>
-                                    <th data-field="price">+/- value ($)</th>
+                                    <th data-field="name">Description</th>
+                                    <th data-field="price">Prix de vente ($)</th>
+                                    <th data-field="price"> </th>
                                 </tr>
                             </thead>
                             <tbody>
-                              <tr ng-repeat='referencesum in referencesums' referencesum>
-                              </tr>
+                                <tr ng-repeat='stock_result in stock_results' search>
+                                </tr>
                             </tbody>
                         </table>
-                      </div>
-                  </div>
-              </div>
-
+                    </div>
+                </div>
             </div>
 
-            <div class="row">
-
-              <!-- RECHERCHE -->
-              <div class="col s12 m4 push-m2">
-                  <div class="icon-block" ng-controller='SearchController'>
-                      <!-- Icône de recherche -->
-                      <div class="center light-blue-text">
-                        <h2><i class="material-icons">search</i></h2>
-                        Recherche d'un prix
-                      </div>
-                      <!-- Optionnel: Titre -->
-                      <!--<h5 class="center">Rechercher</h5>-->
-                      <!-- Barre de recherche -->
-                      <div>
-                          <div>
-                            <div class="col s12 nopadding">
-                              <input type="text" name="Search" ng-model="symbol" placeholder="Rechercher une action">
-                            </div>
-                            <div class="col s12 nopadding">
-                              <button class="btn waves-effect waves-light-blue waves-light all" ng-click="search()">Rechercher</button>
-                            </div>
-                          </div>
-                      </div>
-                      <div>
-                          <table class="centered striped">
-                              <thead>
-                                  <tr>
-                                      <th data-field="id">Référence</th>
-                                      <th data-field="name">Description</th>
-                                      <th data-field="price">Prix de vente ($)</th>
-                                      <th data-field="price"> </th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr ng-repeat='stock_result in stock_results' search>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-
-              <!-- PORTEFEUILLE -->
-              <div class="col s12 m4 push-m3">
-                  <div class="icon-block">
-                      <!-- Icône de la partie portefeuille -->
-                      <div class="center light-blue-text">
-                        <h2><i class="material-icons">work</i></h2>
-                        État du portefeuille actuel
-                      </div>
-                      <!-- Optionnel: Titre -->
-                      <!--<h5 class="center">Portefeuille d'actions</h5>-->
-                      <!-- Tableau représentant le portefeuille d'actions -->
-                      <div ng-controller='StocksController'>
-                          <table class="centered striped">
-                              <thead>
-                                  <tr>
-                                      <th data-field="id">Référence</th>
-                                      <th data-field="name">Description</th>
-                                      <th data-field="price">Prix d'achat ($)</th>
-                                      <th data-field="price">Prix de vente ($)</th>
-                                      <th></th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr ng-repeat='stock in stocks' stock>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-
+            <!-- PORTEFEUILLE -->
+            <div class="col s12 m4 push-m3">
+                <div class="icon-block">
+                    <!-- Icône de la partie portefeuille -->
+                    <div class="center light-blue-text">
+                      <h2><i class="material-icons">work</i></h2>
+                      État actuel du portefeuille
+                    </div>
+                    <!-- Tableau représentant le portefeuille d'actions -->
+                    <div ng-controller='StocksController'>
+                        <table class="centered striped">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">Référence</th>
+                                    <th data-field="name">Description</th>
+                                    <th data-field="price">Prix d'achat ($)</th>
+                                    <th data-field="price">Prix de vente ($)</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat='stock in stocks' stock>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+
+          </div>
 
         </div>
     </div>

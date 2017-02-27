@@ -1,14 +1,15 @@
 angular.module('stocks_shop').factory('Stock',
   ['$rootScope', '$http', function($rootScope, $http) {
 
-    var Stock = function(reference, description, price) {
+    var Stock = function(id, reference, description, price, retailprice) {
+      this.id = id;
       this.reference = reference;
       this.description = description;
       this.price = price;
+      this.retailprice = retailprice;
     }
 
     Stock.prototype.buy = function() {
-      console.log("Achat de l'action dont le symbole est: " + this.reference + " et dont le prix est de: " + this.price);
       var data = {
         reference : this.reference,
         description : this.description,
@@ -20,18 +21,15 @@ angular.module('stocks_shop').factory('Stock',
     }
 
     Stock.prototype.sell = function() {
-      console.log("Vente d'une action achetée à: " + this.price + " et vendue à: " + this.retailprice);
       var val = Number(this.retailprice) - Number(this.price);
       var float = parseFloat(val);
-      console.log("val:"+val);
       var data = {
         reference : this.reference,
         description : this.description,
         value : float,
-        quantity : "1",
+        quantity : "1", //TODO: Permettre de vendre plusieurs actions
         date : new Date()
       }
-      console.log(data);
       $http.delete('http://localhost:3000/stocks/' + this.id);
       $http.post('http://localhost:3000/sales', data);
       $rootScope.$broadcast('updateStocks');
